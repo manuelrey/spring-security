@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+<head>
+<meta charset="UTF-8"/>
+<title>Client</title>
+<link rel="stylesheet" type="text/css"
+ href="../static/css/bootstrap.min.css"
+ th:href="@{css/bootstrap.min.css}"/>
+
+<link rel="stylesheet" type="text/css"
+ href="../static/css/style.css"
+ th:href="@{css/style.css}"/>
+</head>
+
+<body>
+<div layout:fragment="content">
+	<div class="col-md-6 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel panel-heading">Client</div>
+			<div class="panel panel-body">
+				<form th:action="@{/admin/save}" method="post">
+					<div class="form-group">
+						<label class="control-label">First name</label>
+						<input class="form-control" type="text" name="first_name" th:value="${client.first_name}"/>
+						<span class="red" th:errors="${client.first_name}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Last name</label>
+						<input class="form-control" type="text" name="last_name" th:value="${client.last_name}"/>
+						<span th:errors="${client.last_name}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input class="form-control" type="text" name="email" th:value="${client.email}"/>
+						<span th:errors="${client.email}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Telephone</label>
+						<input class="form-control" type="text" name="telephone" th:value="${client.telephone}"/>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
